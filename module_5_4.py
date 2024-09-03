@@ -102,7 +102,7 @@ h2 = House('ЖК Акация', 20)
 print(House.houses_history)
 h3 = House('ЖК Матрёшки', 20)
 print(House.houses_history)
-print(h1.get(name))
+
 # Удаление объектов
 del h2
 del h3
