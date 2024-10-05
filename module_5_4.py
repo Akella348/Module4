@@ -1,23 +1,14 @@
 class House:
     houses_history = []
 
-    def __new__(cls, *name, **number_of_floors):
-       if cls.houses_history is None:
-           cls.houses_history = super().__new__(cls)
-       cls.houses_history.append(name[0])
-       #return cls.houses_history
+    def __new__(cls, *args, **kwargs):
+        obj = object().__new__(cls)
+        cls.houses_history.append(args[0])
+        return obj
 
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = int(number_of_floors)
-
-    # def go_to(self, new_floor):
-    #     if new_floor > self.number_of_floors:
-    #         print('Такого этажа нет')
-    #     else:
-    #         for i in range(1, new_floor+1):
-    #             print(i)
-
 
     def __len__(self):
         return self.number_of_floors
@@ -94,6 +85,7 @@ class House:
             return self
         else:
             print("Неверный тип данных")
+
     def __del__(self):
         print(f"{self.name} снесён, но он останется в истории")
 h1 = House('ЖК Эльбрус', 10)
